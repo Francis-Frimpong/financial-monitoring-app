@@ -1,11 +1,12 @@
 <?php
 session_start();
 
-$routes = require 'app/Routes/routes.php';
+$routes = require __DIR__ . '/app/Routes/routes.php';
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$basePath = '/finance';
+$basePath = '/financial-monitoring-app';
 if (strpos($uri, $basePath) === 0) {
     $uri = substr($uri, strlen($basePath));
 }
@@ -23,7 +24,8 @@ if (!isset($routes[$key])) {
 
 [$controllerName, $methodName] = $routes[$key];
 
-require "app/Controllers/$controllerName.php";
+require __DIR__ . "/app/Controllers/$controllerName.php";
+
 
 $controllerClass = "App\\Controllers\\$controllerName";
 $controller = new $controllerClass();
