@@ -81,7 +81,7 @@ class LoginController
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['name'];
 
-            header('Location: /financial-monitoring-app/dasboard');
+            header('Location: /financial-monitoring-app/Dashboard');
         }
     }
 }
