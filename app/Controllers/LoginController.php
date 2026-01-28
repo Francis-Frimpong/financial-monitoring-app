@@ -2,18 +2,22 @@
 namespace App\Controllers;
 require_once __DIR__ . '/../Database/Database.php';
 require_once __DIR__ . '/../Models/Register.php';
+require_once __DIR__ . '/../Models/Login.php';
 
 use App\Database\Database;
 use App\Models\Register;
+use App\Models\Login;
 
 class LoginController
 {
+    private $register;
     private $login;
     
     public function __construct()
     {
         $pdo = Database::getConnection();
-        $this->login= new Register($pdo);
+        $this->register= new Register($pdo);
+        $this->login = new Login($pdo);
 
     }
 
@@ -51,8 +55,33 @@ class LoginController
             }
 
 
-            $this->login->registerUser($name,$email,$password);
+            $this->register->registerUser($name,$email,$password);
             header('Location: /financial-monitoring-app/login ');
+        }
+    }
+
+    public function authenticate()
+    {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            if (empty($email) || empty($password)){
+                header('Location: /financial-monitoring-app/login');
+                exit;
+            }
+
+            $user = $this->login->signInUser($email);
+
+            if(!$user || !password_verify($password, $user['password'])){
+                header('Location: /financial-monitoring-app/login');
+                exit;
+            }
+
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['name'];
+
+            header('Location: /financial-monitoring-app/dasboard');
         }
     }
 }

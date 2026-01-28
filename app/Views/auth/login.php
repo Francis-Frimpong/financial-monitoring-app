@@ -7,18 +7,18 @@
         <div class="card-body p-4">
             <h4 class="text-center fw-bold mb-3">Login</h4>
 
-            <form>
+            <form action="/financial-monitoring-app/login" method="POST">
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="you@email.com" required>
+                    <input type="email" name="email" class="form-control" placeholder="you@email.com" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" required>
+                    <input type="password" name="password" class="form-control" required>
                 </div>
 
-                <button class="btn btn-primary w-100">
+                <button type="submit" class="btn btn-primary w-100">
                     Login
                 </button>
             </form>
