@@ -6,28 +6,28 @@
         <div class="card-body p-4">
             <h4 class="text-center fw-bold mb-3">Create Account</h4>
 
-            <form>
+            <form action="/financial-monitoring-app/register" method="POST">
                 <div class="mb-3">
                     <label class="form-label">Full Name</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" name="fullname" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" required>
+                    <input type="email" name="email" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" required>
+                    <input type="password" name="password" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" required>
+                    <input type="password" name="confirm_password" class="form-control" required>
                 </div>
 
-                <button class="btn btn-success w-100">
+                <button class="btn btn-success w-100" type="submit">
                     Register
                 </button>
             </form>
@@ -41,4 +41,4 @@
 </div>
 
 
-<?php require_once __DIR__ . '/../Partials/login-registerHeader.php';?>
+<?php require_once __DIR__ . '/../Partials/login-registerFooter.php';?>

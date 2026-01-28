@@ -31,4 +31,4 @@
     </div>
 
 
-<?php require_once __DIR__ . '/../Partials/login-registerHeader.php';?>
+<?php require_once __DIR__ . '/../Partials/login-registerFooter.php';?>
