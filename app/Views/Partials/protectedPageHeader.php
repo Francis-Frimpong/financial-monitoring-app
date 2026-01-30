@@ -1,3 +1,26 @@
+<?php  
+$navLinks = [
+  "Dashboard" =>'/financial-monitoring-app/Dashboard', 
+  "Income" => "/financial-monitoring-app/Income", 
+  "Expenses" => "/financial-monitoring-app/Expenses", 
+  "Categories" => "/financial-monitoring-app/Categories"
+];
+
+// 'financial-monitoring-app/Dashboard';
+
+  $currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+  // strip base path
+  $basePath = '/financial-monitoring-app';
+  if (strpos($currentUri, $basePath) === 0) {
+      $currentUri = substr($currentUri, strlen($basePath));
+  }
+  if ($currentUri === '') {
+      $currentUri = '/';
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,18 +57,16 @@
         </h4>
 
         <ul class="nav flex-column px-2">
+            <?php foreach($navLinks as $label => $url):
+            $linkPath = parse_url($url, PHP_URL_PATH);
+            $linkPath = str_replace($basePath, '', $linkPath)
+            
+            ?>
             <li class="nav-item">
-                <a class="nav-link active" href="dashboard.html">Dashboard</a>
+                <a class="nav-link <?= $currentUri === $linkPath? 'active':'' ?>" href="<?= htmlspecialchars($url) ?>"><?=  htmlspecialchars($label) ?></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="income.html">Income</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="expenses.html">Expenses</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="categories.html">Categories</a>
-            </li>
+            <?php endforeach?>
+           
             <li class="nav-item mt-3">
                 <a class="nav-link text-danger" href="#">Logout</a>
             </li>
