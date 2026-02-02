@@ -6,7 +6,7 @@ require_once __DIR__ . '/../Database/Database.php';
 use App\Database\Database;
 
 
-class ExpensesController
+class AddExpensesController
 {
 
     public function __construct()
@@ -14,11 +14,6 @@ class ExpensesController
         $pdo = Database::getConnection();   
     }
 
-    public function expensesPage()
-    {
-         $pageTitle = 'Expenses';
-        require __DIR__ . '/../Views/expenses.php';
-    }
     public function addexpensesPage()
     {
          $pageTitle = 'Add Expenses';

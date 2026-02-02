@@ -2,7 +2,7 @@
 
 <h4 class="fw-bold mb-3">Income</h4>
 
-<a href="income-add.html" class="btn btn-primary mb-3">
+<a href="/financial-monitoring-app/Add-Income" class="btn btn-primary mb-3">
     + Add Income
 </a>
 

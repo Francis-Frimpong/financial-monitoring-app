@@ -6,7 +6,7 @@ require_once __DIR__ . '/../Database/Database.php';
 use App\Database\Database;
 
 
-class IncomeController
+class AddIncomeController
 {
 
     public function __construct()
@@ -14,12 +14,7 @@ class IncomeController
         $pdo = Database::getConnection();   
     }
 
-    public function incomePage()
-    {
-         $pageTitle = 'Income';
-        require __DIR__ . '/../Views/income.php';
-    }
-    public function addincomePage()
+    public function addIncomePage()
     {
          $pageTitle = 'Add Income';
         require __DIR__ . '/../Views/addIncome.php';

@@ -1,4 +1,4 @@
 <?php
 return [
-    'GET /Income' => ['IncomeController', 'incomePage']
+    'GET /Income' => ['IncomeController', 'incomePage'],
 ];

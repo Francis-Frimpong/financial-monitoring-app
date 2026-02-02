@@ -2,7 +2,7 @@
 
 <h4 class="fw-bold mb-3">Expenses</h4>
 
-<a href="expenses-add.html" class="btn btn-danger mb-3">
+<a href="/financial-monitoring-app/Add-Expenses" class="btn btn-danger mb-3">
     + Add Expense
 </a>
 

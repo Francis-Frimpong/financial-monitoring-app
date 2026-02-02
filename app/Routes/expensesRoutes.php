@@ -1,4 +1,4 @@
 <?php
 return [
-    'GET /Expenses' => ['ExpensesController', 'expensesPage']
+    'GET /Expenses' => ['ExpensesController', 'expensesPage'],
 ];
