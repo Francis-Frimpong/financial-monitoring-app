@@ -16,7 +16,8 @@ class AddIncomeController
 
     public function addIncomePage()
     {
-         $pageTitle = 'Add Income';
+        
+        $pageTitle = 'Add Income';
         require __DIR__ . '/../Views/addIncome.php';
     }
 }

@@ -53,7 +53,7 @@
                     Save Income
                 </button>
 
-                <a href="income.html" class="btn btn-outline-secondary">
+                <a href="/financial-monitoring-app/Income" class="btn btn-outline-secondary">
                     Cancel
                 </a>
             </div>

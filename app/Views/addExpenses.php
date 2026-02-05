@@ -53,7 +53,7 @@
                     Save Expense
                 </button>
 
-                <a href="expenses.html" class="btn btn-outline-secondary">
+                <a href="/financial-monitoring-app/Expenses" class="btn btn-outline-secondary">
                     Cancel
                 </a>
             </div>
