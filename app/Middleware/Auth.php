@@ -8,7 +8,7 @@ class Auth{
 
 
         if(!isset($_SESSION['user_id'])){
-            header('Location: index.php');
+            header('Location: /financial-monitoring-app/login');
             exit;
         }
         

@@ -66,10 +66,17 @@ $navLinks = [
                 <a class="nav-link <?= $currentUri === $linkPath? 'active':'' ?>" href="<?= htmlspecialchars($url) ?>"><?=  htmlspecialchars($label) ?></a>
             </li>
             <?php endforeach?>
-           
-            <li class="nav-item mt-3">
-                <a class="nav-link text-danger" href="#">Logout</a>
-            </li>
+              <li class="nav-item mt-3 px-2">
+                    <form action="/financial-monitoring-app/logout" method="POST">
+                        <button 
+                            type="submit" 
+                            class="btn btn-link nav-link text-danger w-100 text-start"
+                            style="padding-left: .5rem;"
+                        >
+                            Logout
+                        </button>
+                    </form>
+                </li>
         </ul>
     </div>
 </div>
