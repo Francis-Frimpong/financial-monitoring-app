@@ -30,15 +30,9 @@ class IncomeController
         $userId = $_SESSION['user_id'] ?? null;
 
         $pageTitle = 'Income';
-        $this->income->incomeView($userId);
+        $row = $this->income->incomeView($userId);
         require __DIR__ . '/../Views/income.php';
     }
 
 
-    public function addincomePage()
-    {
-        Auth::check();
-        $pageTitle = 'Add Income';
-        require __DIR__ . '/../Views/addIncome.php';
-    }
 }

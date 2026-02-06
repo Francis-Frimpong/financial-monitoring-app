@@ -23,14 +23,14 @@
                 </thead>
 
                 <tbody>
-                    <?php if (empty($income)): ?>
+                    <?php if (empty($row)): ?>
                         <tr>
                             <td colspan="4" class="text-center text-muted">
                                 No record has been created!
                             </td>
                         </tr>
                     <?php else: ?>
-                        <?php foreach ($income as $incomeData): ?>
+                        <?php foreach ($row as $incomeData): ?>
                             <tr>
                                 <td><?= htmlspecialchars($incomeData['income_date']) ?></td>
                                 <td><?= htmlspecialchars($incomeData['source']) ?></td>

@@ -4,13 +4,14 @@
 
 <div class="card shadow-sm">
     <div class="card-body">
-        <form>
+        <form method="POST" action="/financial-monitoring-app/Add-Income">
             <!-- Amount -->
             <div class="mb-3">
                 <label class="form-label">Amount</label>
                 <input 
                     type="number" 
                     class="form-control" 
+                    name="amount"
                     placeholder="e.g. 1500"
                     required
                 >
@@ -22,6 +23,7 @@
                 <input 
                     type="text" 
                     class="form-control" 
+                    name="source"
                     placeholder="Salary, Freelance, Business"
                     required
                 >
@@ -33,6 +35,7 @@
                 <input 
                     type="date" 
                     class="form-control" 
+                    name="date"
                     required
                 >
             </div>
@@ -42,6 +45,7 @@
                 <label class="form-label">Note (optional)</label>
                 <textarea 
                     class="form-control" 
+                    name="note"
                     rows="3"
                     placeholder="Any extra details..."
                 ></textarea>
