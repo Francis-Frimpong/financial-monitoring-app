@@ -8,27 +8,44 @@
 
 
 <div class="card">
-    <div class="table-responsive">
-        <table class="table mb-0">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Source</th>
-                    <th>Amount</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2026-01-10</td>
-                    <td>Salary</td>
-                    <td>₵ 2,000</td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-danger">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="card-body">
+        <h2 class="h5 text-primary mb-3">Income Records</h2>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Source</th>
+                        <th>Amount</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php if (empty($income)): ?>
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">
+                                No record has been created!
+                            </td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($income as $incomeData): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($incomeData['income_date']) ?></td>
+                                <td><?= htmlspecialchars($incomeData['source']) ?></td>
+                                <td>₵ <?= htmlspecialchars($incomeData['amount']) ?></td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+
+            </table>
+        </div>
     </div>
 </div>
+
 <?php require_once __DIR__ . '/Partials/protectedPageFooter.php';?>
