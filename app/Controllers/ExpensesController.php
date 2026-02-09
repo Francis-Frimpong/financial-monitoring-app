@@ -3,25 +3,31 @@ namespace APP\Controllers;
 
 
 require_once __DIR__ . '/../Database/Database.php';
+require_once __DIR__ . '/../Middleware/Auth.php';
+require_once __DIR__ . '/../Models/Expenses.php';
 use App\Database\Database;
+use App\Middleware\Auth;
+use App\Models\Expenses;
 
 
 class ExpensesController
 {
+    private $expense;
 
     public function __construct()
     {
-        $pdo = Database::getConnection();   
+        $pdo = Database::getConnection();  
+        $this->expense = new Expenses($pdo); 
     }
 
     public function expensesPage()
     {
-         $pageTitle = 'Expenses';
+        Auth::check();
+        $userId = $_SESSION['user_id'] ?? null;
+
+        $pageTitle = 'Expenses';
+        $expense = $this->expense->expenseView($userId);
         require __DIR__ . '/../Views/expenses.php';
     }
-    public function addexpensesPage()
-    {
-         $pageTitle = 'Add Expenses';
-        require __DIR__ . '/../Views/addExpenses.php';
-    }
+
 }
