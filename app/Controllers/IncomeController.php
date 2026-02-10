@@ -34,5 +34,20 @@ class IncomeController
         require __DIR__ . '/../Views/income.php';
     }
 
+    public function delete()
+    {
+        $userId = $_SESSION['user_id'];
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            
+            $income_Id = $_POST['id'];
+
+            $this->income->deleteIncome($income_Id, $userId);
+
+            header('Location: /financial-monitoring-app/Income');
+            exit;
+        }
+    }
+
 
 }

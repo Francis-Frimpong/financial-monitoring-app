@@ -35,8 +35,13 @@
                                 <td><?= htmlspecialchars($incomeData['income_date']) ?></td>
                                 <td><?= htmlspecialchars($incomeData['source']) ?></td>
                                 <td>₵ <?= htmlspecialchars($incomeData['amount']) ?></td>
-                                <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                               <td class="text-center">
+                                    <form action="/financial-monitoring-app/Income" method="POST" class="d-inline">
+                                        <input type="hidden" name="id" value="<?= $incomeData['id'] ?>">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
