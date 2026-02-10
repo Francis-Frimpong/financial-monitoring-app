@@ -29,7 +29,7 @@ class DashboardController
         
         $totalIncome = $this->dashboard->totalIncome($userId);
         $totalExpenses =$this->dashboard->totalExpense($userId);
-        $balance = $this->dashboard->balanace($userId);
+        $balance = $this->dashboard->balance($userId);
 
         $pageTitle = 'Dashboard';
         require __DIR__ . '/../Views/dashboard.php';

@@ -21,20 +21,20 @@
                 </thead>
 
                 <tbody>
-                    <?php if (empty($expenses)): ?>
+                    <?php if (empty($expense)): ?>
                         <tr>
                             <td colspan="3" class="text-center text-muted">
                                 No record has been created!
                             </td>
                         </tr>
                     <?php else: ?>
-                        <?php foreach ($expenses as $expenseData): ?>
+                        <?php foreach ($expense as $expenseData): ?>
                             <tr>
                                 <td><?= htmlspecialchars($expenseData['expense_date']) ?></td>
                                 <td>₵ <?= htmlspecialchars($expenseData['amount']) ?></td>
                                 <td class="text-center">
                                     <form action="/financial-monitoring-app/delete-expense" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="<?= $expenseData['id'] ?>">
+                                        <input type="hidden" name="id" value="">
                                         <button type="submit" class="btn btn-sm btn-outline-danger">
                                             Delete
                                         </button>

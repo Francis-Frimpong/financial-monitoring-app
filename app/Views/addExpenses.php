@@ -3,13 +3,14 @@
 
 <div class="card shadow-sm">
     <div class="card-body">
-        <form>
+        <form action="/financial-monitoring-app/Add-Expenses" method="POST">
             <!-- Amount -->
             <div class="mb-3">
                 <label class="form-label">Amount</label>
                 <input 
                     type="number" 
-                    class="form-control" 
+                    class="form-control"
+                    name="amount" 
                     placeholder="e.g. 50"
                     required
                 >
@@ -18,7 +19,7 @@
             <!-- Category -->
             <div class="mb-3">
                 <label class="form-label">Category</label>
-                <select class="form-select" required>
+                <select class="form-select" name="category" required>
                     <option value="">Select category</option>
                     <option>Food</option>
                     <option>Transport</option>
@@ -32,6 +33,7 @@
                 <label class="form-label">Date</label>
                 <input 
                     type="date" 
+                    name="date"
                     class="form-control" 
                     required
                 >
@@ -42,6 +44,7 @@
                 <label class="form-label">Note (optional)</label>
                 <textarea 
                     class="form-control" 
+                    name="note"
                     rows="3"
                     placeholder="What was this expense for?"
                 ></textarea>

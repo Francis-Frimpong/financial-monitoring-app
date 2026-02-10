@@ -15,33 +15,41 @@ class Dashboard{
     }
 
     public function totalIncome($user_id)
-    {
-        $totalIncome = $this->pdo->query("
-            SELECT SUM(amount) AS total_income
-            FROM income
-            WHERE user_id = $user_id
-        ")->fetch();
+{
+    $stmt = $this->pdo->prepare("
+        SELECT SUM(amount) AS total_income
+        FROM income
+        WHERE user_id = ?
+    ");
 
-        return $totalIncome = $totalIncome['total_income'] ?? 0;
-    }
+    $stmt->execute([$user_id]);
+    $result = $stmt->fetch();
+
+    return $result['total_income'] ?? 0;
+}
+
 
     public function totalExpense($user_id)
     {
-            $totalExpenses = $this->pdo->query("
+            $stmt = $this->pdo->prepare("
                 SELECT SUM(amount) AS total_expenses
                 FROM expenses
-                WHERE user_id = $user_id
-            ")->fetch();
+                WHERE user_id = ?
+            ");
 
-            return $totalExpenses = $totalExpenses['total_expenses'] ?? 0;
+            $stmt->execute([$user_id]);
+            $result = $stmt->fetch();
+
+            return $result['total_expenses'] ?? 0;
     }
 
-    public function balanace($user_id)
+    public function balance($user_id)
     {
         $totalIncome = $this->totalIncome($user_id);
         $totalExpenses = $this->totalExpense($user_id);
 
-        return $balance = $totalIncome - $totalExpenses;
+         return $totalIncome - $totalExpenses;
+         
     }
 
 

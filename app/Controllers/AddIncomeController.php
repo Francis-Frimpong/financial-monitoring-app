@@ -1,5 +1,5 @@
 <?php
-namespace APP\Controllers;
+namespace App\Controllers;
 
 
 require_once __DIR__ . '/../Database/Database.php';
@@ -36,6 +36,10 @@ class AddIncomeController
     {
          $userId = $_SESSION['user_id'] ?? null;
 
+         if(!$userId){
+              header('Location:/financial-monitoring-app/login');
+         }
+
         if($_SERVER["REQUEST_METHOD"] === 'POST'){
             $amount = trim($_POST['amount']);
             $source = trim($_POST['source']);
@@ -50,6 +54,8 @@ class AddIncomeController
             $this->addIncome->addincomeRecord($userId, $amount,$source,$date,$note);
 
             header('Location:/financial-monitoring-app/Income');
+
+            exit;
 
 
 

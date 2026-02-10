@@ -26,7 +26,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <small>Balance</small>
-                <h3 class="fw-bold">₵ <?php echo htmlspecialchars($totalIncome)?></h3>
+                <h3 class="fw-bold">₵ <?php echo htmlspecialchars($balance)?></h3>
             </div>
         </div>
     </div>
