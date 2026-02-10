@@ -33,8 +33,8 @@
                                 <td><?= htmlspecialchars($expenseData['expense_date']) ?></td>
                                 <td>₵ <?= htmlspecialchars($expenseData['amount']) ?></td>
                                 <td class="text-center">
-                                    <form action="/financial-monitoring-app/delete-expense" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="">
+                                    <form action="/financial-monitoring-app/Expenses" method="POST" class="d-inline">
+                                        <input type="hidden" name="id" value="<?= $expenseData['id'] ?>">
                                         <button type="submit" class="btn btn-sm btn-outline-danger">
                                             Delete
                                         </button>
