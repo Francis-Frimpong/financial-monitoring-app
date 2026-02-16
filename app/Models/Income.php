@@ -7,11 +7,6 @@ class Income
 {
     private $pdo;
 
-    public $page;
-    public $limit;
-    public $totalRows;
-    public $totalPages;
-
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;

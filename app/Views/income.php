@@ -80,8 +80,8 @@
             </li>
 
         </ul>
-    </nav>
-<?php endif; ?>
+        </nav>
+        <?php endif; ?>
 
     </div>
 </div>
