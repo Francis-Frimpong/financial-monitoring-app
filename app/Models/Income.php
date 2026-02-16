@@ -7,18 +7,45 @@ class Income
 {
     private $pdo;
 
+    public $page;
+    public $limit;
+    public $totalRows;
+    public $totalPages;
+
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
-    public function incomeView($user_Id)
+    public function incomeView($userId, $limit, $offset)
     {
-        $stmt = $this->pdo->prepare('SELECT id, income_date, source, amount FROM income WHERE  user_id = ?');
-        $stmt->execute([$user_Id]);
+        $limit  = (int) $limit;
+        $offset = (int) $offset;
 
-        return $stmt;
+        $sql = "SELECT id, income_date, source, amount
+                FROM income
+                WHERE user_id = :userId
+                ORDER BY income_date DESC
+                LIMIT $limit OFFSET $offset";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->bindValue(':userId', (int)$userId, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+
+    public function countIncomeByUser($user_id)
+    {
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM income WHERE user_id = ?");
+        $stmt->execute([$user_id]);
+        return $stmt->fetchColumn();
+    }   
+
 
     public function deleteIncome($income_Id, $user_Id)
     {

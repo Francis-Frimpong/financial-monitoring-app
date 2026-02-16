@@ -30,7 +30,35 @@ class IncomeController
         $userId = $_SESSION['user_id'] ?? null;
 
         $pageTitle = 'Income';
-        $row = $this->income->incomeView($userId);
+
+        // Number of records per page
+        $limit = 5;
+
+        // Get current page from URL (?page=2)
+        $page = isset($_GET['page']) && is_numeric($_GET['page']) 
+            ? (int) $_GET['page'] 
+            : 1;
+
+        // Prevent negative pages
+        $page = max($page, 1);
+
+        // Calculate offset
+        $offset = ($page - 1) * $limit;
+
+        // Get total records count
+        $totalRecords = $this->income->countIncomeByUser($userId);
+
+        // Calculate total pages
+        $totalPages = ceil($totalRecords / $limit);
+
+        if ($page > $totalPages && $totalPages > 0) {
+            $page = $totalPages;
+            $offset = ($page - 1) * $limit;
+        }
+
+        // Get paginated results
+
+        $row = $this->income->incomeView($userId, $limit, $offset);
         require __DIR__ . '/../Views/income.php';
     }
 
