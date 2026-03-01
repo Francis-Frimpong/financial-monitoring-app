@@ -10,7 +10,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <small>Total Income</small>
-                <h3 class="fw-bold text-success">₵ <?php echo htmlspecialchars($totalIncome)?></h3>
+                <h3 class="fw-bold text-success">₵ <?php echo htmlspecialchars(number_format($totalIncome, 2))?></h3>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <small>Total Expenses</small>
-                <h3 class="fw-bold text-danger">₵ <?php echo htmlspecialchars($totalExpenses)?></h3>
+                <h3 class="fw-bold text-danger">₵ <?php echo htmlspecialchars(number_format($totalExpenses, 2))?></h3>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <small>Balance</small>
-                <h3 class="fw-bold">₵ <?php echo htmlspecialchars($balance)?></h3>
+                <h3 class="fw-bold">₵ <?php echo htmlspecialchars(number_format($balance, 2))?></h3>
             </div>
         </div>
     </div>
@@ -42,10 +42,7 @@
 
 <h5 class="mb-3">Monthly Summary</h5>
 
-<?php
-$currentMonth = $_GET['month'] ?? date('m');
-$currentYear  = $_GET['year'] ?? date('Y');
-?>
+
 
 <div class="card shadow-sm mb-4">
     <div class="card-body">

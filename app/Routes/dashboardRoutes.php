@@ -1,4 +1,5 @@
 <?php
 return [
-    'GET /Dashboard' => ['DashboardController', 'dashboardPage']
+    'GET /Dashboard' => ['DashboardController', 'dashboardPage'],
+    
 ];
