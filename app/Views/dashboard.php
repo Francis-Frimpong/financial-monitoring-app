@@ -99,7 +99,7 @@
                     Income (<?= date('F', mktime(0,0,0,$currentMonth,1)) ?> <?= $currentYear ?>)
                 </small>
                 <h3 class="fw-bold text-success">
-                    ₵ <?= number_format($monthlyIncome, 2) ?>
+                    ₵ <?= htmlspecialchars(number_format($monthlyIncome, 2)) ?>
                 </h3>
             </div>
         </div>
@@ -110,7 +110,7 @@
             <div class="card-body">
                 <small>Expenses</small>
                 <h3 class="fw-bold text-danger">
-                    ₵ <?= number_format($monthlyExpenses, 2) ?>
+                    ₵ <?= htmlspecialchars(number_format($monthlyExpenses, 2)) ?>
                 </h3>
             </div>
         </div>
@@ -121,7 +121,7 @@
             <div class="card-body">
                 <small>Monthly Balance</small>
                 <h3 class="fw-bold <?= ($monthlyBalance < 0) ? 'text-danger' : 'text-success' ?>">
-                    ₵ <?= number_format($monthlyBalance, 2) ?>
+                    ₵ <?= htmlspecialchars(number_format($monthlyBalance, 2)) ?>
                 </h3>
 
                 <?php if ($monthlyBalance < 0): ?>
